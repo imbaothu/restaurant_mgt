@@ -15,4 +15,5 @@ public interface OrdersRepository extends JpaRepository<Orders, Integer> {
     List<Orders> findByStatus(OrderStatus status);
     List<Orders> findByOrderTimeBetween(LocalDateTime start, LocalDateTime end);
     List<Orders> findByCustomerAndStatus(Customer customer, OrderStatus status);
+    List<Orders> findByOrderStatusNot(OrderStatus status);
 }

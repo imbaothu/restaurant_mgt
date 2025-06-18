@@ -57,4 +57,29 @@ public class Orders {
     protected void onCreate() {
         this.orderDate = LocalDateTime.now();
     }
+
+    public void setOrderPaymentStatus(OrderPaymentStatus orderPaymentStatus) {
+    }
+
+    public Long getCustomerId() {
+    }
+
+    public OrderStatus getOrderStatus() {
+    }
+
+    public OrderPaymentStatus getOrderPaymentStatus() {
+    }
+
+    public void setCustomerId(Long customerId) {
+    }
+
+    public void setOrderTime(LocalDateTime now) {
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+    }
+
+    public LocalDateTime getOrderTime() {
+        return null;
+    }
 }

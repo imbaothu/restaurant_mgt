@@ -7,7 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -48,8 +48,23 @@ public class User {
     @Column(name = "LastLogin")
     private LocalDateTime lastLogin;
 
+    @Column(name = "ResetPasswordToken")
+    private String resetPasswordToken;
+
+    @Column(name = "ResetPasswordExpiry")
+    private LocalDateTime resetPasswordExpiry;
+
+    @Column(name = "UpdatedAt")
+    private LocalDateTime updatedAt;
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
     }
 }

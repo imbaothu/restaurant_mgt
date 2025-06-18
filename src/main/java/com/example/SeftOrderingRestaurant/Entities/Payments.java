@@ -50,4 +50,8 @@ public class Payments {
     protected void onCreate() {
         this.paymentDate = LocalDateTime.now();
     }
+
+    public void setOrderId(Long orderId) {
+
+    }
 }

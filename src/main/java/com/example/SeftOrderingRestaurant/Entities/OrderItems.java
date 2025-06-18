@@ -45,4 +45,23 @@ public class OrderItems {
     private void calculateSubTotal() {
         this.subTotal = (this.quantity != null && this.unitPrice != null) ? this.unitPrice.multiply(BigDecimal.valueOf(this.quantity)) : BigDecimal.ZERO;
     }
+
+    public Integer getDishId() {
+    }
+
+    public void setPrice(BigDecimal price) {
+    }
+
+    public void setSubtotal(BigDecimal multiply) {
+    }
+
+    public BigDecimal getSubtotal() {
+    }
+
+    public void setOrderId(Integer id) {
+    }
+
+    public void setDishId(Integer id) {
+
+    }
 }

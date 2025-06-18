@@ -1,36 +1,40 @@
 package com.example.SeftOrderingRestaurant.Entities;
 
-import com.example.SeftOrderingRestaurant.Enums.StaffShiftStatus;
 import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDate;
+import lombok.Data;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "StaffShifts", uniqueConstraints = @UniqueConstraint(columnNames = {"Shift_ID", "Staff_ID", "Date"}))
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
+@Table(name = "staff_shifts")
 public class StaffShift {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "StaffShift_ID")
-    private Integer id;
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "Shift_ID", nullable = false)
-    private Shift shift;
+    @Column(name = "staff_id", nullable = false)
+    private Long staffId;
 
-    @ManyToOne
-    @JoinColumn(name = "Staff_ID", nullable = false)
-    private Staff staff;
+    @Column(name = "shift_id", nullable = false)
+    private Long shiftId;
 
-    @Column(name = "Date", nullable = false)
-    private LocalDate date;
+    @Column(nullable = false)
+    private String status;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "Status", nullable = false, columnDefinition = "ENUM('Assigned', 'Completed', 'Absent')")
-    private StaffShiftStatus status;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }

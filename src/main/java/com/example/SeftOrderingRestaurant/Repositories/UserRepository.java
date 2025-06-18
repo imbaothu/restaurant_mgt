@@ -1,6 +1,5 @@
 package com.example.SeftOrderingRestaurant.Repositories;
 
-
 import com.example.SeftOrderingRestaurant.Entities.User;
 import com.example.SeftOrderingRestaurant.Enums.UserStatus;
 import com.example.SeftOrderingRestaurant.Enums.UserType;
@@ -17,4 +16,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByStatus(UserStatus status);
     List<User> findByUserType(UserType userType);
     Optional<User> findByGoogleId(String googleId);
+    Optional<User> findByResetPasswordToken(String token);
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
+    Optional<User> findByUsernameOrEmail(String username, String email);
 }

@@ -18,9 +18,9 @@ public class SeftOrderingRestaurantApplication {
 		return args -> {
 			try {
 				int count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'SeftOrderingRestaurant'", Integer.class);
-				System.out.println("✅ Database Connected! Number of tables: " + count);
+				System.out.println(" Database Connected! Number of tables: " + count);
 			} catch (Exception e) {
-				System.err.println("❌ Database Connection Failed: " + e.getMessage());
+				System.err.println(" Database Connection Failed: " + e.getMessage());
 			}
 		};
 	}

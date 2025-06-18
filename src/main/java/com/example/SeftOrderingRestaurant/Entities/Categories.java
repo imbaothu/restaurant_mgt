@@ -4,6 +4,8 @@ import com.example.SeftOrderingRestaurant.Enums.CategoryStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "Categories")
 @Getter
@@ -15,7 +17,7 @@ public class Categories {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Category_ID")
-    private Integer id;
+    private Long id;
 
     @Column(name = "Name", length = 100, nullable = false)
     private String name;
@@ -26,7 +28,27 @@ public class Categories {
     @Column(name = "Image", length = 255)
     private String image;
 
+    @Column(name = "Type", length = 50)
+    private String type;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "Status", nullable = false, columnDefinition = "ENUM('Active', 'Inactive') DEFAULT 'Active'")
     private CategoryStatus status = CategoryStatus.ACTIVE;
+
+    @Column(name = "Created_At")
+    private LocalDateTime createdAt;
+
+    @Column(name = "Updated_At")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
 }
