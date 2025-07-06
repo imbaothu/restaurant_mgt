@@ -65,7 +65,7 @@ cd frontend
 
 ---
 
-## 📸 Screenshots
+## 📸 System User Interface
 Below are some key UI pages of the system:
 ### 1. Captive portal page
 ![image](https://github.com/user-attachments/assets/db7b1058-c8fb-46aa-a493-fb74378eac6d)
