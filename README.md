@@ -19,12 +19,12 @@ restaurant_mgt/
 
 ## 🚀 Key Features
 
-- 🧾 Order Management (create, update, track)
-- 🍽️ Menu CRUD operations
-- 🪑 Table reservation system
-- 👨‍🍳 Role-based user access (admin/staff)
-- 📊 Dashboard with real-time statistics
-- etc
+- 🧾 **Manage orders**: Create, update, and track customer orders in real time.
+- 🍽️ **Control menu items**: Perform full CRUD operations on the restaurant menu.
+- 🪑 **Handle table reservations**: Allow customers or staff to reserve, update, and cancel table bookings.
+- 👨‍🍳 **Role-based access control**: Secure login with user roles (admin, staff) and custom permissions.
+- 📊 **Interactive dashboard**: Monitor revenue, orders, and system activity through live charts and statistics.
+- 😃 **Face recognition**: Provide seamless and secure authentication using OpenCV-based face detection.
 ---
 
 ## 🛠️ Tech Stack Overview
